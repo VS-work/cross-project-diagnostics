@@ -2,4 +2,5 @@
 *.js.map
 !*.d.ts
 test
-src/tslint.json
+src
+.idea
