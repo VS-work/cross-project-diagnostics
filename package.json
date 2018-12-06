@@ -1,0 +1,25 @@
+{
+  "name": "cross-project-diagnostics",
+  "version": "0.1.0",
+  "description": "Gapminder Cross-project Diagnostics functionality",
+  "author": "Vyacheslav Chub<vyacheslav.chub@valor-software.com>",
+  "license": "GPL-3.0",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "mocha --require ts-node/register --reporter dot --recursive test/*.spec.ts",
+    "lint": "tslint -e **/*.spec.ts --project ./tsconfig.json --config ./src/tslint.json ./src/**/*.ts"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/mocha": "5.2.5",
+    "@types/node": "10.12.2",
+    "chai": "4.2.0",
+    "chai-as-promised": "7.1.1",
+    "mocha": "5.2.0",
+    "sinon": "7.1.0",
+    "ts-node": "7.0.1",
+    "tslint": "5.11.0",
+    "typescript": "3.1.3"
+  }
+}
