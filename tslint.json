@@ -35,7 +35,7 @@
       "LF"
     ],
     "max-line-length": [true, 200],
-    "max-classes-per-file": [true, 2],
+    "max-classes-per-file": [false],
     "member-access": [
       false
     ],
@@ -79,7 +79,7 @@
     "no-string-literal": true,
     "no-switch-case-fall-through": true,
     "no-trailing-whitespace": true,
-    "no-unused-expression": true,
+    "no-unused-expression": false,
     "no-use-before-declare": true,
     "no-var-keyword": true,
     "no-var-requires": false,

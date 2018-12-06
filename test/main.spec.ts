@@ -15,9 +15,9 @@ describe('logging', () => {
   });
 
   it('with 3 diagnistics manager', () => {
-    const ws = new LiftingDiagnosticManager({ module: 'ws', version: '1.0.0', requestId: '#Q001', level: Level.ALL });
-    const wsreader = new LiftingDiagnosticManager({ module: 'wsreader', version: '2.0.0', requestId: '#Q001', level: Level.ALL });
-    const vizabi = new EndpointDiagnosticManager({ module: 'vizabi', version: '3.0.0', requestId: '#Q001', level: Level.ALL });
+    const ws = new LiftingDiagnosticManager({module: 'ws', version: '1.0.0', requestId: '#Q001', level: Level.ALL});
+    const wsreader = new LiftingDiagnosticManager({module: 'wsreader', version: '2.0.0', requestId: '#Q001', level: Level.ALL});
+    const vizabi = new EndpointDiagnosticManager({module: 'vizabi', version: '3.0.0', requestId: '#Q001', level: Level.ALL});
 
     wsreader.addOutputTo(vizabi);
     ws.addOutputTo(wsreader);
@@ -35,7 +35,7 @@ describe('logging', () => {
       private diag: LiftingDiagnosticManager;
 
       constructor(parentDiagnostic: DiagnosticManager) {
-        this.diag = new LiftingDiagnosticManager({ module: 'ws', version: '1.0.0', requestId: '#Q001', level: Level.ALL });
+        this.diag = new LiftingDiagnosticManager({module: 'ws', version: '1.0.0', requestId: '#Q001', level: Level.ALL});
         this.diag.addOutputTo(parentDiagnostic);
       }
 
@@ -47,10 +47,10 @@ describe('logging', () => {
     }
 
     class WsReader {
-      private diag: LiftingDiagnosticManager;
+      private readonly diag: LiftingDiagnosticManager;
 
       constructor(parentDiagnostic: DiagnosticManager) {
-        this.diag = new LiftingDiagnosticManager({ module: 'wsreader', version: '2.0.0', requestId: '#Q001', level: Level.ALL });
+        this.diag = new LiftingDiagnosticManager({module: 'wsreader', version: '2.0.0', requestId: '#Q001', level: Level.ALL});
         this.diag.addOutputTo(parentDiagnostic);
       }
 
@@ -64,10 +64,10 @@ describe('logging', () => {
     }
 
     class Vizabi {
-      private diag: LiftingDiagnosticManager;
+      private readonly diag: LiftingDiagnosticManager;
 
       constructor(parentDiagnostic: DiagnosticManager) {
-        this.diag = new LiftingDiagnosticManager({ module: 'vizabi', version: '3.0.0', requestId: '#Q001', level: Level.ALL });
+        this.diag = new LiftingDiagnosticManager({module: 'vizabi', version: '3.0.0', requestId: '#Q001', level: Level.ALL});
         this.diag.addOutputTo(parentDiagnostic);
       }
 
@@ -81,7 +81,7 @@ describe('logging', () => {
     }
 
 
-    const main = new EndpointDiagnosticManager({ module: 'tools-page', version: '0.1.0', requestId: '#Q001', level: Level.ALL });
+    const main = new EndpointDiagnosticManager({module: 'tools-page', version: '0.1.0', requestId: '#Q001', level: Level.ALL});
 
     const vizabi = new Vizabi(main);
 
