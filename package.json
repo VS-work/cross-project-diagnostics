@@ -8,7 +8,8 @@
   "scripts": {
     "build": "tsc",
     "test": "mocha --require ts-node/register --reporter dot --recursive test/*.spec.ts",
-    "lint": "tslint -e **/*.spec.ts --project ./tsconfig.json --config ./src/tslint.json ./src/**/*.ts"
+    "lint": "tslint -e **/*.spec.ts --project ./tsconfig.json --config ./src/tslint.json ./src/**/*.ts",
+    "prepublish": "npm run build"
   },
   "dependencies": {},
   "devDependencies": {
