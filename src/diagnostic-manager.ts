@@ -1,4 +1,4 @@
-import { DiagnosticRecord, Level } from './definitions';
+import { DiagnosticRecord, getLabelByLevel, Level } from './definitions';
 
 export const getLevelAvailability = (currentLevel: Level, expectedLevel: Level): boolean => {
   const levelPriorities = [Level.OFF, Level.FATAL, Level.ERROR, Level.WARNING, Level.DEBUG, Level.ALL];
@@ -78,8 +78,10 @@ export class LiftingDiagnosticManager implements DiagnosticManager {
     }
   }
 
-  error(funName: string, message: string, attachment) {
+  error(funName: string, message: string, attachmentPar) {
     if (getLevelAvailability(this.diagnosticDescriptor.level, Level.ERROR)) {
+      const attachment = attachmentPar instanceof Error ? attachmentPar.stack : attachmentPar;
+
       this.addRecord(this.prepareRecord({funName, message, attachment}, Level.ERROR));
     }
   }
@@ -146,7 +148,7 @@ export class LiftingDiagnosticManager implements DiagnosticManager {
       module: this.diagnosticDescriptor.module,
       version: this.diagnosticDescriptor.version,
       requestId: this.diagnosticDescriptor.requestId,
-      funName, message, level, attachment
+      funName, message, level: getLabelByLevel(level), attachment
     };
   }
 }

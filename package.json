@@ -7,9 +7,9 @@
   "main": "lib/index.js",
   "scripts": {
     "build": "tsc",
-    "test": "mocha --require ts-node/register --reporter dot --recursive test/*.spec.ts",
+    "test": "npm run lint && mocha --require ts-node/register --reporter dot --recursive test/*.spec.ts",
     "lint": "tslint -e **/*.spec.ts --project ./tsconfig.json --config ./tslint.json ./src/**/*.ts",
-    "prepublish": "npm run build"
+    "prepublish": "npm test && npm run build"
   },
   "dependencies": {},
   "devDependencies": {

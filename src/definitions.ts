@@ -37,6 +37,6 @@ export type DiagnosticRecord = {
   version: string;
   funName: string;
   message: string;
-  level: Level;
+  level: string;
   attachment?: any;
 };
