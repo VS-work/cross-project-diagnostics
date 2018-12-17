@@ -1,6 +1,6 @@
 {
   "name": "cross-project-diagnostics",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Gapminder Cross-project Diagnostics functionality",
   "author": "Vyacheslav Chub<vyacheslav.chub@valor-software.com>",
   "license": "GPL-3.0",

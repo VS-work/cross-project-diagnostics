@@ -143,13 +143,19 @@ export class LiftingDiagnosticManager implements DiagnosticManager {
 
   private prepareRecord(data, level: Level): DiagnosticRecord {
     const {funName, message, attachment} = data;
-
-    return {
+    const result: DiagnosticRecord = {
+      time: (new Date()).toISOString(),
       module: this.diagnosticDescriptor.module,
       version: this.diagnosticDescriptor.version,
       requestId: this.diagnosticDescriptor.requestId,
-      funName, message, level: getLabelByLevel(level), attachment
+      funName, message, level: getLabelByLevel(level)
     };
+
+    if (attachment) {
+      result.attachment = attachment;
+    }
+
+    return result;
   }
 }
 

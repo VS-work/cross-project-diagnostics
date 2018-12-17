@@ -32,6 +32,7 @@ export const getLabelByLevel = (level: Level): string => {
 };
 
 export type DiagnosticRecord = {
+  time: string;
   module: string;
   requestId: string;
   version: string;
