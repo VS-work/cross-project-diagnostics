@@ -15,7 +15,7 @@
     "alwaysStrict": true,
     "sourceMap": true,
     "noEmitHelpers": false,
-    "importHelpers": true,
+    "importHelpers": false,
     "strictNullChecks": false,
     "baseUrl": ".",
     "lib": [
